@@ -1,2 +1,2 @@
 # leetcode
-Finish leetcode arithmeticn by Golang
+Finish leetcode arithmeticn
