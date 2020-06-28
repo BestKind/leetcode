@@ -22,27 +22,27 @@ import "fmt"
 		 请注意，答案必须是一个子串，"pwke" 是一个子序列 而不是子串
  */
 func lengthOfLongestSubstring(s string) int {
-	location := [256]int{}
-	left, maxLen := 0, 0
+	lastOccurred := make(map[rune]int)
+	start, maxLength := 0, 0
 
-	for i := range location {
-		location[i] = -1
-	}
-
-	for i := 0; i < len(s); i++ {
-		if location[s[i]] >= left {
-			left = location[s[i]] + 1
-		} else if i + 1 - left > maxLen {
-			maxLen = i + 1 - left
+	for i, ch := range []rune(s) {
+		if lastI, ok := lastOccurred[ch]; ok && lastI >= start {
+			start = lastI + i
 		}
-		location[s[i]] = i
+		if i-start+1 > maxLength {
+			maxLength = i - start + 1
+		}
+		lastOccurred[ch] = i
 	}
-
-	return maxLen
+	return maxLength
 }
 
 func main() {
 	str := "abcabcabc"
 	res := lengthOfLongestSubstring(str)
 	fmt.Println(res)
+	fmt.Println(lengthOfNonRepeatingSubStr("bbbbb"))
+	fmt.Println(lengthOfNonRepeatingSubStr("pwwkew"))
+	fmt.Println(lengthOfNonRepeatingSubStr("这里是中文串"))
+	fmt.Println(lengthOfNonRepeatingSubStr("一二三二一"))
 }
