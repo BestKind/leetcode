@@ -32,7 +32,7 @@ func romanToInt(s string) int {
 	return res
 }
 
-func main()  {
+func main() {
 	fmt.Println(romanToInt("III"))
 	fmt.Println(romanToInt("XIV"))
 }

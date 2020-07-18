@@ -1,9 +1,10 @@
 package main
 
 import (
-    "fmt"
-    "math"
+	"fmt"
+	"math"
 )
+
 /**
 给定一个 32 位有符号整数，将整数中的数字进行反转。
 
@@ -22,34 +23,33 @@ import (
 注意:
 
 假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−231,  231 − 1]。根据这个假设，如果反转后的整数溢出，则返回 0。
- */
+*/
 func reverse(x int) int {
-    sign := 1
+	sign := 1
 
-    if x < 0 {
-	sign = -1
-	x = -1 * x
-    }
+	if x < 0 {
+		sign = -1
+		x = -1 * x
+	}
 
-    res := 0
-    for x > 0 {
-	temp := x % 10
-	res = res * 10 + temp
-	x = x / 10
-    }
+	res := 0
+	for x > 0 {
+		temp := x % 10
+		res = res*10 + temp
+		x = x / 10
+	}
 
-    res = sign * res
+	res = sign * res
 
-    if res > math.MaxInt32 || res < math.MinInt32 {
-	res = 0
-    }
+	if res > math.MaxInt32 || res < math.MinInt32 {
+		res = 0
+	}
 
-    return res
+	return res
 }
 
 func main() {
-    x := -123
-    res := reverse(x)
-    fmt.Println(res)
+	x := -123
+	res := reverse(x)
+	fmt.Println(res)
 }
-

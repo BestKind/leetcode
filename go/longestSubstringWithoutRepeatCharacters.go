@@ -41,8 +41,8 @@ func main() {
 	str := "abcabcabc"
 	res := lengthOfLongestSubstring(str)
 	fmt.Println(res)
-	fmt.Println(lengthOfNonRepeatingSubStr("bbbbb"))
-	fmt.Println(lengthOfNonRepeatingSubStr("pwwkew"))
-	fmt.Println(lengthOfNonRepeatingSubStr("这里是中文串"))
-	fmt.Println(lengthOfNonRepeatingSubStr("一二三二一"))
+	fmt.Println(lengthOfLongestSubstring("bbbbb"))
+	fmt.Println(lengthOfLongestSubstring("pwwkew"))
+	fmt.Println(lengthOfLongestSubstring("这里是中文串"))
+	fmt.Println(lengthOfLongestSubstring("一二三二一"))
 }
